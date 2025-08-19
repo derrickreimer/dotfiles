@@ -14,6 +14,14 @@
     command: "/Users/derrickreimer/.rbenv/shims/rubocop"
   "linter-ui-default":
     showPanel: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
   "ruby-test": {}
   welcome:
     showOnStartup: false
+".elm.source":
+  editor:
+    tabType: "soft"
