@@ -40,7 +40,7 @@ echo ".dotfiles" >> .gitignore
 Then, clone this repository into your home directory:
 
 ```sh
-git clone --bare https://github.com/djreimer/dotfiles.git $HOME/.dotfiles
+git clone --bare https://github.com/derrickreimer/dotfiles.git $HOME/.dotfiles
 ```
 
 Checkout the content of the repository into `$HOME`:
