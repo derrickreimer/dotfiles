@@ -107,9 +107,6 @@ for file in $HOME/.aliases/* ; do
   source "$file"
 done
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 export FLYCTL_INSTALL="$HOME/.fly"
@@ -118,12 +115,11 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # Add local bin to PATH (Claude Code needs this)
 export PATH="$HOME/.local/bin:$PATH"
 
-. "$HOME/.asdf/asdf.sh"
-
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
 # Added by Windsurf
 export PATH="$HOME/.codeium/windsurf/bin:$PATH"
+
+# Mise
+eval "$(mise activate bash)"
