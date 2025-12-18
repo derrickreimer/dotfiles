@@ -1,2 +1,0 @@
-# Hack to fix the camera when it's not responding (courtesy of @r00k)
-alias fix-camera='sudo killall VDCAssistant'

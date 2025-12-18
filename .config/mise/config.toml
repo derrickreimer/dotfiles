@@ -1,0 +1,7 @@
+[tools]
+  erlang = "latest"
+  elixir = "latest"
+  nodejs = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]

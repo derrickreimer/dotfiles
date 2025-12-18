@@ -1,15 +1,21 @@
-cask_args appdir: "/Applications"
+# Brew
+brew 'gh'
+brew 'git'
+brew 'mise'
+brew 'pnpm'
+brew 'starship'
+brew 'zsh-completions'
+brew 'zsh'
 
-tap "homebrew/bundle"
-tap "homebrew/core"
-
-brew "dnsmasq"
-brew "docker"
-brew "docker-machine"
-brew "elixir"
-brew "git"
-brew "heroku"
-brew "hub"
-brew "yarn"
-brew "zsh"
-brew "zsh-completions"
+# Cask
+cask 'cleanshot'
+cask 'firefox'
+cask 'google-chrome'
+cask 'obsidian'
+cask 'raycast'
+cask 'slack'
+cask 'spotify'
+cask 'telegram'
+cask 'visual-studio-code'
+cask 'windsurf'
+cask 'zoom'
