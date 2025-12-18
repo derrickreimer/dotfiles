@@ -1,0 +1,83 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Timeout for commands executed by starship (ms)
+command_timeout = 500
+
+# Newline between prompt lines
+add_newline = true
+
+# ------------------------------
+# Prompt format
+# ------------------------------
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$elixir\
+$ruby\
+$python\
+$line_break\
+$character"""
+
+# ------------------------------
+# Directory
+# ------------------------------
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold cyan"
+
+# ------------------------------
+# Git
+# ------------------------------
+[git_branch]
+format = "[$branch]($style) "
+style = "bold purple"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "bold red"
+
+# ------------------------------
+# Character (prompt symbol)
+# ------------------------------
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# ------------------------------
+# Languages (shown when relevant files detected)
+# ------------------------------
+[nodejs]
+format = "[$symbol($version )]($style)"
+symbol = "⬢ "
+style = "bold green"
+
+[elixir]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "bold purple"
+
+[ruby]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "bold red"
+
+[python]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "bold yellow"
+
+# ------------------------------
+# Disabled modules (for speed)
+# ------------------------------
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[package]
+disabled = true
