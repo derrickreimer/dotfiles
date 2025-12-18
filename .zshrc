@@ -123,3 +123,11 @@ export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 
 # Mise
 eval "$(mise activate bash)"
+
+# pnpm
+export PNPM_HOME="/Users/derrickreimer/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
