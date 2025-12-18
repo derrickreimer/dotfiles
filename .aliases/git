@@ -1,10 +1,3 @@
-# Use `hub` as our git wrapper (http://defunkt.github.com/hub/)
-hub_path=$(which hub)
-if (( $+commands[hub] ))
-then
-  alias git=$hub_path
-fi
-
 # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 
@@ -16,10 +9,5 @@ alias gacm='git add -A && git commit -m'
 alias gpush='git push'
 alias gpull='git pull'
 alias gcane='git commit --amend --no-edit'
-alias gclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias gclean='git branch --merged | egrep -v "(^\*|master|dev|main)" | xargs git branch -d'
 alias gpr='git pull-request'
-
-# Check out a new branch and reset the current branch back one commit
-function branchify {
-  git branch $1 && git reset --hard HEAD~ && git checkout $1
-}
