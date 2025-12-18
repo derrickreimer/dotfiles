@@ -1,6 +1,7 @@
 # Brew
 brew 'gh'
 brew 'git'
+brew 'imagemagick'
 brew 'mise'
 brew 'pnpm'
 brew 'postgresql@15', restart_service: true
