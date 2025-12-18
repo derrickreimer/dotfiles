@@ -10,6 +10,8 @@ brew 'zsh'
 
 # Cask
 cask 'cleanshot'
+cask 'claude'
+cask 'claude-code'
 cask 'elgato-camera-hub'
 cask 'elgato-control-center'
 cask 'firefox'
