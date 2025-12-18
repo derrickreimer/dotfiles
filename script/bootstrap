@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-echo '* Tapping Homebrew bundle'
-brew tap Homebrew/bundle
-
-echo '* Installing all the brews'
-brew bundle

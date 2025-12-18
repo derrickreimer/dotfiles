@@ -6,15 +6,12 @@ Technique borrowed from [Nicola Paolucci's blog post](https://developer.atlassia
 
 ## Installation
 
-### Install Zsh and Oh My Zsh
+### Install dependencies
 
-The configuration files assume you have [Zsh installed](https://www.google.com/search?q=installing+zsh)
-and [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
-
-At the time of writing, Homebrew is a great way to install Zsh.
+Install Homebrew-managed dependencies (which include `zsh`):
 
 ```sh
-brew install zsh zsh-completions
+brew bundle
 chsh -s /bin/zsh
 ```
 
@@ -69,7 +66,7 @@ since this repository will only manage certain hand-picked files in your
 home directory:
 
 ```sh
-dotfiles config --local status.showUntrackedFiles no
+df config --local status.showUntrackedFiles no
 ```
 
 ## Committing new changes
@@ -79,33 +76,26 @@ to your dotfiles repo.
 
 ```sh
 # See your proposed changes
-dotfiles status
+df status
 
 # Stage up your changes
-dotfiles add .zshrc
+df add .zshrc
 
 # Commit it
-dotfiles commit -m "Message goes here"
+df commit -m "Message goes here"
 
 # Push it up
-dotfiles push
+df push
 ```
 
-You'll want to avoid running an "add all" command (like `dotfiles add .` or `dotfiles add -A`)
+You'll want to avoid running an "add all" command (like `df add .` or `df add -A`)
 since only some of the files in the home directory are tracked by Git.
 
 ## Miscellanea
 
 ### Managing Homebrew dependencies
 
-Once directory is under git management, run the bootstrap script to
-perform additional environment setup (tap Homebrew bundle, install Zsh, etc.):
-
-```sh
-script/bootstrap
-```
-
-To install new Homebrew packages, add to the `Brewfile`, run `brew bundle`,
+To install Homebrew packages, add to the `Brewfile`, run `brew bundle`,
 and commit your changes.
 
 ## Starting from scratch
