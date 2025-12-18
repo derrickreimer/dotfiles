@@ -3,6 +3,7 @@ brew 'gh'
 brew 'git'
 brew 'mise'
 brew 'pnpm'
+brew 'postgresql@15', restart_service: true
 brew 'starship'
 brew 'zsh-completions'
 brew 'zsh'
