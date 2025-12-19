@@ -6,6 +6,12 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias df='dotfiles'
 
 # ------------------------------
+# tmux
+# ------------------------------
+
+alias t='tmux attach || tmux new'
+
+# ------------------------------
 # Git
 # ------------------------------
 
