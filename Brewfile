@@ -1,4 +1,8 @@
 # Brew
+
+tap 'CrunchyData/brew'
+
+brew 'cb'
 brew 'gh'
 brew 'git'
 brew 'glow'
