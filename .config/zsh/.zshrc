@@ -3,7 +3,6 @@
 # ------------------------------
 
 export EDITOR="windsurf"
-export ZDOTDIR="$HOME/.config/zsh"
 
 # ------------------------------
 # PATH
