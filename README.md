@@ -17,16 +17,7 @@ chsh -s /bin/zsh
 
 ### Clone the repository into home directory
 
-This repository contains a `.zshrc` file, which you will want to override the
-default file created by Zsh. If you need to retain your existing `.zshrc` file,
-move it to a different spot:
-
-```sh
-cd ~
-mv .zshrc .zshrc.pre-dotfiles
-```
-
-Next, ensure that your `.dotfiles` directory will be ignored by Git (to eliminate
+Ensure that your `.dotfiles` directory will be ignored by Git (to eliminate
 recursion issues) by adding to `.gitignore`:
 
 ```sh
