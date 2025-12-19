@@ -1,6 +1,4 @@
 # ------------------------------
-# Environment
-# ------------------------------
 
 export EDITOR="windsurf"
 
@@ -32,6 +30,10 @@ setopt APPEND_HISTORY        # Append instead of overwrite
 
 autoload -Uz compinit
 compinit -C  # -C skips security check for faster startup
+
+# Git completions for dotfiles helpers
+compdef dotfiles=git
+compdef df=git
 
 zstyle ':completion:*' menu select                 # Arrow key selection
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # Case-insensitive
