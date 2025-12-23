@@ -12,6 +12,12 @@ alias df='dotfiles'
 alias t='tmux attach || tmux new'
 
 # ------------------------------
+# Elixir
+# ------------------------------
+
+alias mps='iex -S mix phx.server'
+
+# ------------------------------
 # Git
 # ------------------------------
 
