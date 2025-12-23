@@ -3,6 +3,7 @@
 tap 'CrunchyData/brew'
 
 brew 'cb'
+brew 'flyctl'
 brew 'gh'
 brew 'git'
 brew 'glow'
