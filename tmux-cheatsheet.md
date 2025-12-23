@@ -22,6 +22,7 @@ Notation: `C-b` means Ctrl-b, then release, then press the next key
 | `C-b $`                     | Rename current session                          |
 | `C-b s`                     | Session picker (interactive)                    |
 | `C-b :kill-session`         | Kill current session                            |
+| `C-b r`                     | Reload config (custom keybinding)               |
 
 ---
 
