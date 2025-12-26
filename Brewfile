@@ -3,6 +3,7 @@
 tap 'CrunchyData/brew'
 
 brew 'cb'
+brew 'fd' # Required by nvim
 brew 'flyctl'
 brew 'gh'
 brew 'git'
