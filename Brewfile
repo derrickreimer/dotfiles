@@ -16,6 +16,7 @@ brew 'postgresql@15', restart_service: true
 brew 'ripgrep'
 brew 'starship'
 brew 'tmux'
+brew 'tree-sitter-cli'
 brew 'zsh-completions'
 brew 'zsh'
 
