@@ -100,9 +100,7 @@ vim.g.have_nerd_font = false
 
 -- Make line numbers default
 vim.o.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -221,6 +219,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+-- Switch to absolute line numbers in command mode
+vim.api.nvim_create_autocmd('CmdlineEnter', {
+  desc = 'Show absolute line numbers in command mode',
+  group = vim.api.nvim_create_augroup('cmdline-linenumbers', { clear = true }),
+  callback = function()
+    vim.o.relativenumber = false
+    vim.cmd('redraw')
+  end,
+})
+
+vim.api.nvim_create_autocmd('CmdlineLeave', {
+  desc = 'Restore relative line numbers after command mode',
+  group = vim.api.nvim_create_augroup('cmdline-linenumbers-leave', { clear = true }),
+  callback = function()
+    vim.o.relativenumber = true
   end,
 })
 
