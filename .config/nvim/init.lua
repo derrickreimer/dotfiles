@@ -228,7 +228,7 @@ vim.api.nvim_create_autocmd('CmdlineEnter', {
   group = vim.api.nvim_create_augroup('cmdline-linenumbers', { clear = true }),
   callback = function()
     vim.o.relativenumber = false
-    vim.cmd('redraw')
+    vim.cmd 'redraw'
   end,
 })
 
@@ -702,8 +702,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
+        ts_ls = {},
         elixirls = {},
         lua_ls = {
           -- cmd = { ... },
@@ -782,7 +781,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 3000,
             lsp_format = 'fallback',
           }
         end
@@ -792,11 +791,15 @@ require('lazy').setup({
         elixir = { 'mix' },
         eelixir = { 'mix' },
         heex = { 'mix' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'eslint_d', 'prettier' },
+        typescript = { 'eslint_d', 'prettier' },
+        javascriptreact = { 'eslint_d', 'prettier' },
+        typescriptreact = { 'eslint_d', 'prettier' },
+      },
+      formatters = {
+        eslint_d = {
+          require_cwd = true,
+        },
       },
     },
   },
