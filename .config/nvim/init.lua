@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -941,8 +941,44 @@ require('lazy').setup({
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   { -- Collection of various small independent plugins/modules
-    'echasnovski/mini.nvim',
+    'nvim-mini/mini.nvim',
     config = function()
+      -- Start screen
+      local starter = require 'mini.starter'
+
+      local header = [[
+      ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+      ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+      ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+      ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+      ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+      ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+      ]]
+
+      starter.setup {
+        header = header,
+        items = {
+          { name = 'Find file', action = 'Telescope find_files', section = 'Actions' },
+          { name = 'Recent files', action = 'Telescope oldfiles', section = 'Actions' },
+          { name = 'Grep text', action = 'Telescope live_grep', section = 'Actions' },
+          { name = 'Config', action = 'e $MYVIMRC', section = 'Actions' },
+          { name = 'Lazy', action = 'Lazy', section = 'Actions' },
+          { name = 'New file', action = 'enew', section = 'Actions' },
+          { name = 'Quit', action = 'qa', section = 'Actions' },
+          starter.sections.recent_files(5, false),
+        },
+        footer = function()
+          local stats = require('lazy').stats()
+          return '⚡ ' .. stats.loaded .. '/' .. stats.count .. ' plugins loaded'
+        end,
+        content_hooks = {
+          starter.gen_hook.adding_bullet '» ',
+          starter.gen_hook.indexing('all', { 'Actions' }),
+          starter.gen_hook.padding(3, 2),
+          starter.gen_hook.aligning('center', 'center'),
+        },
+      }
+
       -- Better Around/Inside textobjects
       --
       -- Examples:
@@ -1023,7 +1059,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
