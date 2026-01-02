@@ -1,6 +1,7 @@
 # Brew
 
 tap 'CrunchyData/brew'
+tap 'stripe/stripe-cli'
 
 brew 'cb'
 brew 'fd' # Required by nvim
@@ -15,6 +16,7 @@ brew 'pnpm'
 brew 'postgresql@15', restart_service: true
 brew 'ripgrep'
 brew 'starship'
+brew 'stripe/stripe-cli/stripe'
 brew 'tailscale'
 brew 'tmux'
 brew 'tree-sitter-cli'
