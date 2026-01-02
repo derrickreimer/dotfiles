@@ -240,6 +240,18 @@ vim.api.nvim_create_autocmd('CmdlineLeave', {
   end,
 })
 
+-- Force spaces for JavaScript/TypeScript (overrides guess-indent)
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Use spaces for JS/TS files',
+  group = vim.api.nvim_create_augroup('js-ts-indent', { clear = true }),
+  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
