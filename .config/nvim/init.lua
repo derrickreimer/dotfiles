@@ -119,6 +119,12 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Default to 2 spaces for indentation (guess-indent will override when it detects otherwise)
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -237,18 +243,6 @@ vim.api.nvim_create_autocmd('CmdlineLeave', {
   group = vim.api.nvim_create_augroup('cmdline-linenumbers-leave', { clear = true }),
   callback = function()
     vim.o.relativenumber = true
-  end,
-})
-
--- Force spaces for JavaScript/TypeScript (overrides guess-indent)
-vim.api.nvim_create_autocmd('FileType', {
-  desc = 'Use spaces for JS/TS files',
-  group = vim.api.nvim_create_augroup('js-ts-indent', { clear = true }),
-  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-  callback = function()
-    vim.bo.expandtab = true
-    vim.bo.shiftwidth = 2
-    vim.bo.tabstop = 2
   end,
 })
 
