@@ -12,6 +12,7 @@ brew 'glow'
 brew 'imagemagick'
 brew 'mise'
 brew 'neovim'
+brew 'opencode'
 brew 'pnpm'
 brew 'postgresql@15', restart_service: true
 brew 'ripgrep'
