@@ -1,14 +1,4 @@
 # ------------------------------
-# Dotfiles management
-# ------------------------------
-
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias df='dotfiles'
-alias dfs='dotfiles status'
-alias dfa='dotfiles add'
-alias dfc='dotfiles commit -m'
-
-# ------------------------------
 # nvim
 # ------------------------------
 
