@@ -1,0 +1,25 @@
+# ========================
+# Theme
+# ========================
+
+theme = TokyoNight
+
+# ========================
+# Font
+# ========================
+
+font-family = "MesloLGL Nerd Font Mono"
+font-size = 14
+
+# ========================
+# macOS
+# ========================
+
+macos-titlebar-proxy-icon = hidden
+
+# ========================
+# Window
+# ========================
+
+window-padding-x = 16
+window-padding-y = 16
