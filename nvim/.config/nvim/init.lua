@@ -820,7 +820,7 @@ require('lazy').setup({
     opts = function()
       -- Check if project has eslint-plugin-prettier configured
       -- If so, eslint_d handles both linting fixes AND prettier formatting in one pass
-      -- Otherwise, run eslint_d for fixes, then prettierd/prettier for formatting
+      -- Otherwise, run eslint_d for fixes, then prettierd for formatting
       local function has_eslint_prettier()
         local root = vim.fn.findfile('package.json', '.;')
         if root == '' then
@@ -834,8 +834,7 @@ require('lazy').setup({
 
         local content = file:read '*all'
         file:close()
-
-        return content:find 'eslint-plugin-prettier' ~= nil
+        return content:find 'eslint%-plugin%-prettier' ~= nil
       end
 
       -- Dynamic formatter selection for JS/TS files
@@ -846,8 +845,8 @@ require('lazy').setup({
           return { 'eslint_d' }
         else
           -- Run eslint_d for autofixes, then prettier for formatting
-          -- Use prettierd (daemon) for speed, fall back to prettier
-          return { 'eslint_d', { 'prettierd', 'prettier', stop_after_first = true } }
+          -- Use prettierd (daemon) for speed
+          return { 'eslint_d', 'prettierd' }
         end
       end
 
