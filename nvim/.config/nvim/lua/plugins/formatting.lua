@@ -72,7 +72,7 @@ return {
         typescript = js_formatters,
         javascriptreact = js_formatters,
         typescriptreact = js_formatters,
-        markdown = { { 'prettierd', 'prettier', stop_after_first = true } },
+        markdown = { 'prettierd', 'prettier', stop_after_first = true },
       },
       formatters = {
         eslint_d = {
