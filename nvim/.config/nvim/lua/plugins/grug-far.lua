@@ -12,7 +12,7 @@ return {
     {
       '<leader>sW',
       function()
-        require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })
+        require('grug-far').open { prefills = { search = vim.fn.expand '<cword>' } }
       end,
       desc = '[S]earch current [W]ord (grug-far)',
     },
