@@ -438,6 +438,11 @@ require('lazy').setup({
           -- mappings = {
           --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
           -- },
+          prompt_prefix = '  ',
+          sorting_strategy = 'ascending',
+          layout_config = {
+            prompt_position = 'top',
+          },
           file_ignore_patterns = {
             '.DS_Store',
             '.git/',
@@ -1004,6 +1009,20 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-night'
+
+      -- Make Telescope background match the editor background
+      vim.api.nvim_set_hl(0, 'TelescopeNormal', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopePreviewNormal', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopeResultsNormal', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopeBorder', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopeTitle', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { link = 'Normal' })
+      vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { link = 'Normal' })
     end,
   },
 
