@@ -78,6 +78,10 @@ return {
           no_ignore = true,
           hidden = true,
         },
+        oldfiles = {
+          prompt_title = 'Project History',
+          cwd_only = true,
+        },
       },
       extensions = {
         ['ui-select'] = {
