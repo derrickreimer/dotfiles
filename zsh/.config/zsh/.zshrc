@@ -54,7 +54,7 @@ eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
 # ------------------------------
-# Local overrides (not in git)
+# Local overrides
 # ------------------------------
 
 [[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"

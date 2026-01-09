@@ -51,24 +51,28 @@ error_symbol = "[❯](bold red)"
 # Languages (shown when relevant files detected)
 # ------------------------------
 [nodejs]
-format = "[$symbol($version )]($style)"
-symbol = "⬢ "
-style = "bold green"
+# format = "[$symbol($version )]($style)"
+# symbol = "⬢ "
+# style = "bold green"
+disabled = true
 
 [elixir]
-format = "[$symbol($version )]($style)"
-symbol = " "
-style = "bold purple"
+# format = "[$symbol($version )]($style)"
+# symbol = " "
+# style = "bold purple"
+disabled = true
 
 [ruby]
-format = "[$symbol($version )]($style)"
-symbol = " "
-style = "bold red"
+# format = "[$symbol($version )]($style)"
+# symbol = " "
+# style = "bold red"
+disabled = true
 
 [python]
-format = "[$symbol($version )]($style)"
-symbol = " "
-style = "bold yellow"
+# format = "[$symbol($version )]($style)"
+# symbol = " "
+# style = "bold yellow"
+disabled = true
 
 # ------------------------------
 # Disabled modules (for speed)
