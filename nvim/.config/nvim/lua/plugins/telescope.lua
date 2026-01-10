@@ -96,6 +96,7 @@ return {
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
+
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sh', builtin.git_files, { desc = '[S]earch Git Files' })
@@ -108,6 +109,14 @@ return {
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>sm', builtin.git_status, { desc = '[S]earch Git Status' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+    -- Smart open
+    vim.keymap.set('n', '<leader>ff', function()
+      require('telescope').extensions.smart_open.smart_open {
+        cwd_only = true,
+        filename_first = false,
+      }
+    end, { desc = '[F]ind [F]iles with smart-open' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
