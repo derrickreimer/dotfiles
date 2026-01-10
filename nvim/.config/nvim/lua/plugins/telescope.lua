@@ -78,6 +78,9 @@ return {
           no_ignore = true,
           hidden = true,
         },
+        live_grep = {
+          additional_args = { '--hidden' },
+        },
         oldfiles = {
           prompt_title = 'Project History',
           cwd_only = true,
