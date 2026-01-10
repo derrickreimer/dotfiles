@@ -100,7 +100,7 @@ return {
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sh', builtin.git_files, { desc = '[S]earch Git Files' })
-    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+    -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -111,12 +111,12 @@ return {
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     -- Smart open
-    vim.keymap.set('n', '<leader>ff', function()
+    vim.keymap.set('n', '<leader>sf', function()
       require('telescope').extensions.smart_open.smart_open {
         cwd_only = true,
         filename_first = false,
       }
-    end, { desc = '[F]ind [F]iles with smart-open' })
+    end, { desc = '[S]earch [F]iles with smart-open' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
