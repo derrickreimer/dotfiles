@@ -47,18 +47,18 @@ chsh -s "$(brew --prefix)/bin/zsh"
 
 Each directory is a stow package that maps to `$HOME`:
 
-| Package    | Description                                     |
-|------------|-------------------------------------------------|
-| `brew`     | Homebrew Brewfile for packages and casks        |
-| `claude`   | Claude Code settings                            |
-| `ghostty`  | Ghostty terminal config (TokyoNight theme)      |
-| `git`      | Global gitignore                                |
-| `kitty`    | Kitty terminal config                           |
-| `mise`     | mise runtime manager (Erlang, Elixir, Node.js)  |
-| `nvim`     | Neovim config (based on Kickstart)              |
-| `starship` | Starship prompt configuration                   |
-| `tmux`     | tmux configuration with vim-style keybindings   |
-| `zsh`      | Zsh configuration with modular setup            |
+| Package    | Description                                    |
+| ---------- | ---------------------------------------------- |
+| `brew`     | Homebrew Brewfile for packages and casks       |
+| `claude`   | Claude Code settings                           |
+| `ghostty`  | Ghostty terminal config (TokyoNight theme)     |
+| `git`      | Global gitignore                               |
+| `kitty`    | Kitty terminal config                          |
+| `mise`     | mise runtime manager (Erlang, Elixir, Node.js) |
+| `nvim`     | Neovim config (based on Kickstart)             |
+| `starship` | Starship prompt configuration                  |
+| `tmux`     | tmux configuration with vim-style keybindings  |
+| `zsh`      | Zsh configuration with modular setup           |
 
 ## Managing dotfiles
 
@@ -86,7 +86,7 @@ stow -D zsh
 
 ## Cheatsheets
 
-- `neovim-cheatsheet.md` - Neovim keybindings reference
+- `nvim/.config/nvim/doc/cheatsheet.md` - Neovim keybindings reference (accessible via `<leader>?` in nvim)
 - `tmux-cheatsheet.md` - tmux keybindings reference (accessible via `prefix + ?` in tmux)
 
 ## Local overrides
