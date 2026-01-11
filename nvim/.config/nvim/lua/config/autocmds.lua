@@ -29,3 +29,11 @@ vim.api.nvim_create_autocmd('CmdlineLeave', {
     vim.o.relativenumber = true
   end,
 })
+
+-- Treat MJML files as HTML for syntax highlighting and tag completion
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.mjml',
+  callback = function()
+    vim.bo.filetype = 'html'
+  end,
+})

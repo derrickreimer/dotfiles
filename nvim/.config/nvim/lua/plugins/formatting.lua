@@ -64,6 +64,8 @@ return {
         end
       end,
       formatters_by_ft = {
+        html = { 'prettierd' },
+        mjml = { 'prettierd' },
         lua = { 'stylua' },
         elixir = { 'mix' },
         eelixir = { 'mix' },
