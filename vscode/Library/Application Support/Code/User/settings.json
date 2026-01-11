@@ -4,5 +4,6 @@
     "vim.neovimConfigPath": "~/.config/nvim/init.lua",
     "vim.neovimPath": "/opt/homebrew/bin/nvim",
     "vim.neovimUseConfigFile": true,
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "vim.useSystemClipboard": true
 }
