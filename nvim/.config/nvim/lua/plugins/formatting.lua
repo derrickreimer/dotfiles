@@ -58,7 +58,7 @@ return {
           return nil
         else
           return {
-            timeout_ms = 1000,
+            timeout_ms = 5000,
             lsp_format = 'fallback',
           }
         end
