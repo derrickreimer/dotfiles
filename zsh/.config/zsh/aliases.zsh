@@ -38,3 +38,11 @@ alias gclean='git branch --merged | egrep -v "(^\*|master|dev|main)" | xargs git
 alias gpr='git pull-request'
 alias gco='git checkout'
 alias gb='git branch'
+
+# ------------------------------
+# Encrypted zips
+# ------------------------------
+
+alias 7zap='7z a -p -mhe=on'
+alias 7zx='7z x'
+

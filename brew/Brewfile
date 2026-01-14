@@ -14,6 +14,7 @@ brew 'mise'
 brew 'mjml'
 brew 'neovim'
 brew 'opencode'
+brew 'p7zip'
 brew 'pnpm'
 brew 'postgresql@15', restart_service: true
 brew 'ripgrep'
