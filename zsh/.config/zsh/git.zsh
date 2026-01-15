@@ -3,6 +3,7 @@
 # ------------------------------
 
 # Add a worktree as a sibling directory with branch name suffix
+# Creates the branch if it doesn't exist
 # Usage: gwa <branch-name>
 # Example: gwa feature-x  ->  ../repo-feature-x
 gwa() {
@@ -23,7 +24,13 @@ gwa() {
   local parent_dir=$(dirname "$repo_root")
   local worktree_path="$parent_dir/$repo_name-$branch"
 
-  git worktree add "$worktree_path" "$branch"
+  # Check if branch exists locally or remotely
+  if git show-ref --verify --quiet "refs/heads/$branch" || \
+     git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+    git worktree add "$worktree_path" "$branch"
+  else
+    git worktree add -b "$branch" "$worktree_path"
+  fi
 }
 
 # Add a worktree and start a tmux session in it
