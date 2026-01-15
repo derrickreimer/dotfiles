@@ -26,6 +26,30 @@ gwa() {
   git worktree add "$worktree_path" "$branch"
 }
 
+# Add a worktree and start a tmux session in it
+# Usage: gwat <branch-name>
+# Example: gwat feature-x  ->  creates ../repo-feature-x and opens tmux session
+gwat() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: gwat <branch-name>"
+    return 1
+  fi
+
+  local branch="$1"
+  local repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+
+  if [[ -z "$repo_root" ]]; then
+    echo "Error: Not in a git repository"
+    return 1
+  fi
+
+  local repo_name=$(basename "$repo_root")
+  local parent_dir=$(dirname "$repo_root")
+  local worktree_path="$parent_dir/$repo_name-$branch"
+
+  gwa "$branch" && tmux new-session -s "$branch" -c "$worktree_path"
+}
+
 # Remove a worktree by branch name
 # Usage: gwr <branch-name>
 # Example: gwr feature-x  ->  removes ../repo-feature-x
