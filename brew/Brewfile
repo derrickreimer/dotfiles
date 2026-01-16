@@ -30,7 +30,6 @@ brew 'zsh'
 # Cask
 cask 'cleanshot'
 cask 'claude'
-cask 'claude-code'
 cask 'dropbox'
 cask 'elgato-camera-hub'
 cask 'firefox'
