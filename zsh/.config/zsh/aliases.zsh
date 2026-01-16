@@ -40,6 +40,12 @@ alias gco='git checkout'
 alias gb='git branch'
 
 # ------------------------------
+# Homebrew
+# ------------------------------
+
+alias bb='brew bundle --file="$HOME/dotfiles/brew/Brewfile"'
+
+# ------------------------------
 # Encrypted zips
 # ------------------------------
 
