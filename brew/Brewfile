@@ -10,6 +10,7 @@ brew 'gh'
 brew 'git'
 brew 'glow'
 brew 'imagemagick'
+brew 'libyaml' # Ruby needs this to build
 brew 'mise'
 brew 'mjml'
 brew 'neovim'
