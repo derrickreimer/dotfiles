@@ -85,6 +85,9 @@ return {
           prompt_title = 'Project History',
           cwd_only = true,
         },
+        lsp_document_symbols = {
+          symbol_width = 50,
+        },
       },
       extensions = {
         ['ui-select'] = {
