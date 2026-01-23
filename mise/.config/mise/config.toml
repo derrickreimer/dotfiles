@@ -2,6 +2,7 @@
   erlang = "latest"
   elixir = "latest"
   nodejs = "latest"
+  "npm:@fsouza/prettierd" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
