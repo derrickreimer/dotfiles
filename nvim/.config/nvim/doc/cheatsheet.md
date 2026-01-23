@@ -58,6 +58,35 @@ Leader key: `<Space>`
 |-------------|---------------|
 | `<leader>f` | Format buffer |
 
+## Fugitive (`:Git` or `:G`)
+
+| Command         | Description           |
+|-----------------|-----------------------|
+| `:Git` or `:G`  | Open git status       |
+| `:Git blame`    | Inline git blame      |
+| `:Git diff`     | Show diff             |
+| `:Gvdiffsplit`  | Vertical diff split   |
+| `:Git log`      | Show git log          |
+| `:Git push`     | Push to remote        |
+| `:Git pull`     | Pull from remote      |
+
+**In fugitive status buffer:**
+
+| Keymap | Description                   |
+|--------|-------------------------------|
+| `s`    | Stage file/hunk               |
+| `u`    | Unstage file/hunk             |
+| `-`    | Toggle stage/unstage          |
+| `=`    | Toggle inline diff            |
+| `cc`   | Commit                        |
+| `ca`   | Commit --amend                |
+| `X`    | Discard change                |
+| `<CR>` | Open file                     |
+| `o`    | Open in horizontal split      |
+| `gO`   | Open in vertical split        |
+| `dv`   | Open vertical diff split      |
+| `g?`   | Show help                     |
+
 ## Git/Gitsigns (`<leader>h*`)
 
 | Keymap       | Description              |
