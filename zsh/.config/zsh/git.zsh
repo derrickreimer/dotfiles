@@ -54,7 +54,16 @@ gwat() {
   local parent_dir=$(dirname "$repo_root")
   local worktree_path="$parent_dir/$repo_name-$branch"
 
-  gwa "$branch" && tmux new-session -s "$branch" -c "$worktree_path"
+  gwa "$branch" || return 1
+
+  if [[ -n "$TMUX" ]]; then
+    # Already in tmux: create detached session and switch to it
+    tmux new-session -d -s "$branch" -c "$worktree_path"
+    tmux switch-client -t "$branch"
+  else
+    # Not in tmux: create and attach normally
+    tmux new-session -s "$branch" -c "$worktree_path"
+  fi
 }
 
 # Remove a worktree by branch name
