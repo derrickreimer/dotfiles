@@ -37,3 +37,13 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.bo.filetype = 'html'
   end,
 })
+
+-- Markdown-specific settings
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  desc = 'Enable soft wrap for markdown files',
+  callback = function()
+    vim.wo.wrap = true      -- Enable visual line wrapping
+    vim.wo.linebreak = true -- Wrap at word boundaries, not mid-word
+  end,
+})
