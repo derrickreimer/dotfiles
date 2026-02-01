@@ -3,6 +3,7 @@
   elixir = "latest"
   nodejs = "latest"
   "npm:@fsouza/prettierd" = "latest"
+  "npm:@openai/codex" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
