@@ -18,7 +18,9 @@ return {
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
       additional_vim_regex_highlighting = { 'ruby' },
     },
-    indent = { enable = true, disable = { 'ruby' } },
+    -- Disabling indentation for elixir because of unresolved issues with pipe chains
+    -- https://elixirforum.com/t/neovim-indentation-bug-with-more-than-one-on-a-line-keeps-wrongly-adding-another-indentation/64791/8
+    indent = { enable = true, disable = { 'ruby', 'elixir' } },
     incremental_selection = {
       enable = true,
       keymaps = {
