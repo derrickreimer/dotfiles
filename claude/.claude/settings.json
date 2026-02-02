@@ -10,7 +10,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude is awaiting input\" with title \"Claude Code\"'"
+            "command": "osascript -e \"display notification \\\"$PWD\\\" with title \\\"Claude Code - $(tmux display-message -p '#S' 2>/dev/null || echo 'shell')\\\"\""
           }
         ]
       }
