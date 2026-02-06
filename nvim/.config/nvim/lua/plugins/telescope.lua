@@ -121,6 +121,7 @@ return {
       require('telescope').extensions.smart_open.smart_open {
         cwd_only = true,
         filename_first = false,
+        match_algorithm = 'fzf',
       }
     end, { desc = '[S]earch [F]iles with smart-open' })
 
