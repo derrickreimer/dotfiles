@@ -51,6 +51,7 @@ Each directory is a stow package that maps to `$HOME`:
 | ---------- | ---------------------------------------------- |
 | `brew`     | Homebrew Brewfile for packages and casks       |
 | `claude`   | Claude Code settings                           |
+| `codex`    | Codex settings                                 |
 | `ghostty`  | Ghostty terminal config (TokyoNight theme)     |
 | `git`      | Global gitignore                               |
 | `kitty`    | Kitty terminal config                          |

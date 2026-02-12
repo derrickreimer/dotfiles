@@ -1,0 +1,17 @@
+personality = "pragmatic"
+model = "gpt-5.3-codex"
+
+[projects."/Users/derrickreimer/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/derrickreimer/Code/savvycal/meetings"]
+trust_level = "trusted"
+
+[projects."/Users/derrickreimer/Code/savvycal/appointments-app"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.2-codex" = "gpt-5.3-codex"
+
+[sandbox_workspace_write]
+network_access = true
