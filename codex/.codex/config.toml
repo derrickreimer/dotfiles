@@ -1,4 +1,5 @@
-personality = "pragmatic"
+#:schema https://developers.openai.com/codex/config-schema.json
+personality = "friendly"
 model = "gpt-5.3-codex"
 model_reasoning_effort = "high"
 
@@ -11,8 +12,17 @@ trust_level = "trusted"
 [projects."/Users/derrickreimer/Code/savvycal/appointments-app"]
 trust_level = "trusted"
 
+[projects."/Users/derrickreimer/Code/savvycal/mjml-editor"]
+trust_level = "trusted"
+
 [notice.model_migrations]
 "gpt-5.2-codex" = "gpt-5.3-codex"
 
 [sandbox_workspace_write]
 network_access = true
+
+[features]
+experimental_use_rmcp_client = true
+
+[mcp_servers.linear]
+url = "https://mcp.linear.app/mcp"
