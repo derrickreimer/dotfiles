@@ -1,12 +1,12 @@
 {
+  "env": {
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-5-20250929"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
   },
   "model": "opus",
-  "env": {
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-5-20250929"
-  },
   "hooks": {
     "Notification": [
       {
