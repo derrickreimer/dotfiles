@@ -7,7 +7,6 @@
     "commit": "",
     "pr": ""
   },
-  "model": "opus",
   "hooks": {
     "Notification": [
       {
