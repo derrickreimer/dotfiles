@@ -4,6 +4,7 @@
   nodejs = "latest"
   "npm:@fsouza/prettierd" = "latest"
   "npm:@openai/codex" = "latest"
+  "npm:bibletui" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
