@@ -5,6 +5,7 @@
   "npm:@fsouza/prettierd" = "latest"
   "npm:@openai/codex" = "latest"
   "npm:bibletui" = "latest"
+  "npm:counselors" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

@@ -6,6 +6,7 @@ tap 'stripe/stripe-cli'
 brew 'cb'
 brew 'fd' # Required by nvim
 brew 'flyctl'
+brew 'gemini-cli'
 brew 'gh'
 brew 'git'
 brew 'glow'

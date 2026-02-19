@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "defaults": {
+    "timeout": 540,
+    "outputDir": "./agents/counselors",
+    "readOnly": "bestEffort",
+    "maxContextKb": 50,
+    "maxParallel": 4
+  },
+  "tools": {
+    "claude-opus": {
+      "binary": "/Users/derrickreimer/.local/bin/claude",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "adapter": "claude",
+      "extraFlags": [
+        "--model",
+        "opus"
+      ]
+    },
+    "codex-5.3-high": {
+      "binary": "/Users/derrickreimer/.local/share/mise/installs/npm-openai-codex/0.104.0/bin/codex",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "codex",
+      "extraFlags": [
+        "-m",
+        "gpt-5.3-codex",
+        "-c",
+        "model_reasoning_effort=high"
+      ]
+    },
+    "gemini-3-pro": {
+      "binary": "/opt/homebrew/bin/gemini",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "gemini",
+      "extraFlags": [
+        "-m",
+        "gemini-3-pro-preview"
+      ]
+    }
+  },
+  "groups": {}
+}
