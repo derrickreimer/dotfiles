@@ -20,7 +20,7 @@
       ]
     },
     "codex-5.3-high": {
-      "binary": "/Users/derrickreimer/.local/share/mise/installs/npm-openai-codex/0.104.0/bin/codex",
+      "binary": "/Users/derrickreimer/.local/share/mise/installs/node/18.20.8/bin/codex",
       "readOnly": {
         "level": "enforced"
       },
