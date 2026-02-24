@@ -20,6 +20,7 @@ brew 'p7zip'
 brew 'pnpm'
 brew 'postgresql@15', restart_service: true
 brew 'ripgrep'
+brew 'rlwrap'
 brew 'starship'
 brew 'stripe/stripe-cli/stripe'
 brew 'stow'
