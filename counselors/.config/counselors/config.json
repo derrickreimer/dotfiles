@@ -33,7 +33,21 @@
         "model_reasoning_effort=high"
       ]
     },
-    "gemini-3-pro": {
+    "codex-5.3-xhigh": {
+      "binary": "/Users/derrickreimer/.local/share/mise/installs/node/18.20.8/bin/codex",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "codex",
+      "extraFlags": [
+        "-m",
+        "gpt-5.3-codex",
+        "-c",
+        "model_reasoning_effort=xhigh"
+      ]
+    },
+    "gemini-3.1-pro": {
       "binary": "/opt/homebrew/bin/gemini",
       "readOnly": {
         "level": "enforced"
@@ -42,9 +56,11 @@
       "adapter": "gemini",
       "extraFlags": [
         "-m",
-        "gemini-3-pro-preview"
+        "gemini-3.1-pro-preview"
       ]
     }
   },
-  "groups": {}
+  "groups": {
+    "smart": ["claude-opus", "codex-5.3-xhigh", "gemini-3.1-pro"]
+  }
 }

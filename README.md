@@ -26,7 +26,7 @@ Symlink configurations with stow:
 
 ```bash
 # Symlink all packages
-stow brew claude ghostty git kitty mise nvim starship tmux vscode zsh
+stow brew claude gemini ghostty git kitty mise nvim starship tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
@@ -52,6 +52,7 @@ Each directory is a stow package that maps to `$HOME`:
 | `brew`     | Homebrew Brewfile for packages and casks       |
 | `claude`   | Claude Code settings                           |
 | `codex`    | Codex settings                                 |
+| `gemini`   | Gemini CLI settings                            |
 | `ghostty`  | Ghostty terminal config (TokyoNight theme)     |
 | `git`      | Global gitignore                               |
 | `kitty`    | Kitty terminal config                          |
