@@ -15,6 +15,9 @@ trust_level = "trusted"
 [projects."/Users/derrickreimer/Code/savvycal/mjml-editor"]
 trust_level = "trusted"
 
+[projects."/Users/derrickreimer/Code/savvycal/appointments"]
+trust_level = "trusted"
+
 [notice.model_migrations]
 "gpt-5.2-codex" = "gpt-5.3-codex"
 
