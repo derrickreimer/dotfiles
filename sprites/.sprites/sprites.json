@@ -1,0 +1,26 @@
+{
+  "version": "1",
+  "current_selection": {
+    "url": "https://api.sprites.dev",
+    "org": "savvycal"
+  },
+  "urls": {
+    "https://api.sprites.dev": {
+      "url": "https://api.sprites.dev",
+      "orgs": {
+        "savvycal": {
+          "name": "savvycal",
+          "keyring_key": "sprites:org:https://api.sprites.dev:savvycal",
+          "token_added_at": "2026-02-27T17:49:48.817619-06:00",
+          "sprites": {
+            "savvycal": {
+              "name": "savvycal"
+            }
+          }
+        }
+      }
+    }
+  },
+  "last_version_check": "2026-02-27T17:49:49-06:00",
+  "latest_version": "v0.0.1-rc39"
+}

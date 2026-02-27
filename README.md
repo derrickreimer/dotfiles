@@ -26,7 +26,7 @@ Symlink configurations with stow:
 
 ```bash
 # Symlink all packages
-stow brew claude gemini ghostty git kitty mise nvim starship tmux vscode zsh
+stow brew claude gemini ghostty git kitty mise nvim sprites starship tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
@@ -58,6 +58,7 @@ Each directory is a stow package that maps to `$HOME`:
 | `kitty`    | Kitty terminal config                          |
 | `mise`     | mise runtime manager (Erlang, Elixir, Node.js) |
 | `nvim`     | Neovim config (based on Kickstart)             |
+| `sprites`  | Sprites.dev settings                           |
 | `starship` | Starship prompt configuration                  |
 | `tmux`     | tmux configuration with vim-style keybindings  |
 | `vscode`   | VS Code user settings                          |
