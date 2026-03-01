@@ -47,7 +47,7 @@
         "model_reasoning_effort=xhigh"
       ]
     },
-    "gemini-3.1-pro": {
+    "gemini-3-pro": {
       "binary": "/opt/homebrew/bin/gemini",
       "readOnly": {
         "level": "enforced"
@@ -56,11 +56,11 @@
       "adapter": "gemini",
       "extraFlags": [
         "-m",
-        "gemini-3.1-pro-preview"
+        "gemini-3-pro-preview"
       ]
     }
   },
   "groups": {
-    "smart": ["claude-opus", "codex-5.3-xhigh", "gemini-3.1-pro"]
+    "smart": ["claude-opus", "codex-5.3-xhigh", "gemini-3-pro"]
   }
 }
