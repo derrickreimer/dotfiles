@@ -33,6 +33,11 @@ brew bundle --file=brew/Brewfile
 
 # Stow configurations
 echo "Stowing dotfiles..."
+
+# Stow 'stow' first to ensure .stow-global-ignore is applied
+echo "Stowing stow..."
+stow -R -v -t "$HOME" stow
+
 STOW_PACKAGES=(
   brew
   claude
@@ -47,7 +52,6 @@ STOW_PACKAGES=(
   opencode
   sprites
   starship
-  stow
   tmux
   vscode
   zsh

@@ -33,8 +33,11 @@ brew bundle --file=brew/Brewfile
 Symlink configurations with stow:
 
 ```bash
+# Symlink stow first to ensure .stow-global-ignore is applied
+stow stow
+
 # Symlink all packages
-stow brew claude codex counselors gemini ghostty git kitty mise nvim opencode sprites starship stow tmux vscode zsh
+stow brew claude codex counselors gemini ghostty git kitty mise nvim opencode sprites starship tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
