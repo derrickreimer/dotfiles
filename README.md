@@ -28,12 +28,24 @@ Run the bootstrap script:
 ./bootstrap.sh
 ```
 
+Preview changes without applying them:
+
+```bash
+./bootstrap.sh --dry-run
+```
+
 ### Linux (Cloud/VM)
 
 For Debian/Ubuntu-based systems, run the Linux bootstrap script:
 
 ```bash
 ./bootstrap-linux.sh
+```
+
+Preview changes without applying them:
+
+```bash
+./bootstrap-linux.sh --dry-run
 ```
 
 ### Manual Installation (macOS)
