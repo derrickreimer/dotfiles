@@ -16,6 +16,14 @@ git clone https://github.com/derrickreimer/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
+Run the bootstrap script:
+
+```bash
+./bootstrap.sh
+```
+
+Alternatively, you can install manually:
+
 Install Homebrew packages (including `stow`):
 
 ```bash
@@ -26,7 +34,7 @@ Symlink configurations with stow:
 
 ```bash
 # Symlink all packages
-stow brew claude gemini ghostty git kitty mise nvim opencode sprites starship tmux vscode zsh
+stow brew claude codex counselors gemini ghostty git kitty mise nvim opencode sprites starship stow tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
@@ -52,6 +60,7 @@ Each directory is a stow package that maps to `$HOME`:
 | `brew`     | Homebrew Brewfile for packages and casks       |
 | `claude`   | Claude Code settings                           |
 | `codex`    | Codex settings                                 |
+| `counselors` | Counselors settings                          |
 | `gemini`   | Gemini CLI settings                            |
 | `ghostty`  | Ghostty terminal config (TokyoNight theme)     |
 | `git`      | Global gitignore                               |
@@ -61,6 +70,7 @@ Each directory is a stow package that maps to `$HOME`:
 | `opencode` | Opencode settings                              |
 | `sprites`  | Sprites.dev settings                           |
 | `starship` | Starship prompt configuration                  |
+| `stow`     | Stow configuration                             |
 | `tmux`     | tmux configuration with vim-style keybindings  |
 | `vscode`   | VS Code user settings                          |
 | `zsh`      | Zsh configuration with modular setup           |
