@@ -16,11 +16,23 @@ git clone https://github.com/derrickreimer/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
+### macOS
+
 Run the bootstrap script:
 
 ```bash
 ./bootstrap.sh
 ```
+
+### Linux (Cloud/VM)
+
+For Debian/Ubuntu-based systems, run the Linux bootstrap script:
+
+```bash
+./bootstrap-linux.sh
+```
+
+### Manual Installation (macOS)
 
 Alternatively, you can install manually:
 
