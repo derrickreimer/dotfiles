@@ -22,7 +22,7 @@ codex() {
 
 oc() {
   tmux rename-window "oc"
-  command oc "$@"
+  command opencode "$@"
 }
 
 # ------------------------------
