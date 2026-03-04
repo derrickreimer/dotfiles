@@ -4,8 +4,12 @@ These are Derrick Reimer's dotfiles. I'm using `stow` to manage symlinking.
 
 ## Prerequisites
 
-- macOS
-- [Homebrew](https://brew.sh/)
+- macOS or Linux (Debian/Ubuntu)
+- `git`
+- `curl`
+- `sudo` access
+
+Note: Homebrew is automatically installed by `bootstrap.sh` on macOS.
 
 ## Installation
 

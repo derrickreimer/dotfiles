@@ -10,6 +10,17 @@ echo "Starting bootstrap process for Linux..."
 # Ensure we are in the dotfiles directory
 cd "$(dirname "$0")"
 
+# Check for Linux + apt
+if [[ "$(uname)" != "Linux" ]]; then
+  echo "Error: This script is intended for Linux only."
+  exit 1
+fi
+
+if ! command -v apt-get &> /dev/null; then
+  echo "Error: This script currently supports Debian/Ubuntu systems (apt-get)."
+  exit 1
+fi
+
 # Update and install base dependencies
 echo "Updating apt and installing base dependencies..."
 sudo apt-get update
@@ -44,7 +55,7 @@ sudo apt-get install -y \
 if ! command -v fd &> /dev/null; then
   echo "Symlinking fdfind to fd..."
   mkdir -p ~/.local/bin
-  ln -s $(which fdfind) ~/.local/bin/fd
+  ln -sf "$(command -v fdfind)" ~/.local/bin/fd
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
@@ -70,7 +81,7 @@ fi
 if ! command -v nvim &> /dev/null; then
   echo "Installing Neovim (latest stable)..."
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-  sudo rm -rf /opt/nvim
+  sudo rm -rf /opt/nvim /opt/nvim-linux64
   sudo tar -C /opt -xzf nvim-linux64.tar.gz
   rm nvim-linux64.tar.gz
   
@@ -97,8 +108,8 @@ for dir in */; do
     continue
   fi
   
-  # Skip macOS-specific packages (optional, but good practice)
-  if [[ "$package" == "brew" || "$package" == "rectangle" ]]; then
+  # Skip macOS-specific package
+  if [[ "$package" == "brew" ]]; then
       continue
   fi
 

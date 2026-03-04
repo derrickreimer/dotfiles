@@ -19,13 +19,22 @@ fi
 if ! command -v brew &> /dev/null; then
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  
-  # Add Homebrew to PATH for the current session
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   echo "Homebrew is already installed."
 fi
+
+BREW_BIN="$(command -v brew || true)"
+if [[ -z "$BREW_BIN" ]]; then
+  echo "Error: Homebrew installation was not detected."
+  exit 1
+fi
+
+# Add Homebrew to PATH for future sessions and current shell
+BREW_SHELLENV_LINE="eval \"\$($BREW_BIN shellenv)\""
+if ! grep -Fqx "$BREW_SHELLENV_LINE" "$HOME/.zprofile" 2>/dev/null; then
+  echo "$BREW_SHELLENV_LINE" >> "$HOME/.zprofile"
+fi
+eval "$($BREW_BIN shellenv)"
 
 # Install packages from Brewfile
 echo "Installing Homebrew packages..."
@@ -54,7 +63,7 @@ done
 
 # Set up zsh as default shell
 echo "Setting up zsh..."
-BREW_ZSH="$(brew --prefix)/bin/zsh"
+BREW_ZSH="$($BREW_BIN --prefix)/bin/zsh"
 
 if ! grep -q "$BREW_ZSH" /etc/shells; then
   echo "Adding Homebrew zsh to allowed shells..."
