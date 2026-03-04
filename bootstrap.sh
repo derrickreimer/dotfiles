@@ -38,26 +38,16 @@ echo "Stowing dotfiles..."
 echo "Stowing stow..."
 stow -R -v -t "$HOME" stow
 
-STOW_PACKAGES=(
-  brew
-  claude
-  codex
-  counselors
-  gemini
-  ghostty
-  git
-  kitty
-  mise
-  nvim
-  opencode
-  sprites
-  starship
-  tmux
-  vscode
-  zsh
-)
-
-for package in "${STOW_PACKAGES[@]}"; do
+# Stow all other packages
+echo "Stowing other packages..."
+for dir in */; do
+  package="${dir%/}" # Remove trailing slash
+  
+  # Skip the 'stow' package as it's already done
+  if [[ "$package" == "stow" ]]; then
+    continue
+  fi
+  
   echo "Stowing $package..."
   stow -R -v -t "$HOME" "$package"
 done
