@@ -19,6 +19,7 @@ sudo apt-get install -y \
   git \
   stow \
   zsh \
+  tmux \
   unzip \
   tar \
   ripgrep \
