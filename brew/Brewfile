@@ -2,6 +2,7 @@
 
 tap 'CrunchyData/brew'
 tap 'stripe/stripe-cli'
+tap 'honeybadger-io/tap'
 
 brew 'cb'
 brew 'fd' # Required by nvim
@@ -10,6 +11,7 @@ brew 'gemini-cli'
 brew 'gh'
 brew 'git'
 brew 'glow'
+brew 'honeybadger'
 brew 'imagemagick'
 brew 'libyaml' # Ruby needs this to build
 brew 'mise'
