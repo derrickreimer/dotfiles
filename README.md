@@ -65,7 +65,7 @@ Symlink configurations with stow:
 stow stow
 
 # Symlink all packages
-stow brew claude codex counselors gemini ghostty git kitty mise nvim opencode sprites starship tmux vscode zsh
+stow brew claude codex counselors gemini ghostty git kitty mise nvim opencode starship tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
@@ -99,7 +99,6 @@ Each directory is a stow package that maps to `$HOME`:
 | `mise`     | mise runtime manager (Erlang, Elixir, Node.js) |
 | `nvim`     | Neovim config (based on Kickstart)             |
 | `opencode` | Opencode settings                              |
-| `sprites`  | Sprites.dev settings                           |
 | `starship` | Starship prompt configuration                  |
 | `stow`     | Stow configuration                             |
 | `tmux`     | tmux configuration with vim-style keybindings  |
