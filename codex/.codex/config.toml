@@ -1,7 +1,7 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 personality = "friendly"
-model = "gpt-5.3-codex"
-model_reasoning_effort = "high"
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
 
 [projects."/Users/derrickreimer/dotfiles"]
 trust_level = "trusted"

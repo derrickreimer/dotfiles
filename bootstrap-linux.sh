@@ -136,13 +136,13 @@ fi
 # Install Neovim (Latest Stable from GitHub)
 if ! command -v nvim &> /dev/null; then
   echo "Installing Neovim (latest stable)..."
-  run curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-  run sudo rm -rf /opt/nvim /opt/nvim-linux64
-  run sudo tar -C /opt -xzf nvim-linux64.tar.gz
-  run rm nvim-linux64.tar.gz
-  
+  run curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+  run sudo rm -rf /opt/nvim /opt/nvim-linux-x86_64
+  run sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+  run rm nvim-linux-x86_64.tar.gz
+
   # Add to PATH (symlink to /usr/local/bin)
-  run sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
+  run sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
 else
   echo "Neovim is already installed."
 fi
