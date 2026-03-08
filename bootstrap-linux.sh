@@ -181,7 +181,7 @@ ZSH_PATH=$(which zsh)
 
 if [ "$SHELL" != "$ZSH_PATH" ]; then
   echo "Changing default shell to zsh..."
-  run sudo chsh -s "$ZSH_PATH" "$USER"
+  run sudo chsh -s "$ZSH_PATH" "$(whoami)"
 fi
 
 # Run mise install to set up tools (Node, etc.)
