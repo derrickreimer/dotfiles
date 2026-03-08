@@ -114,7 +114,9 @@ for dir in */; do
   fi
   
   echo "Stowing $package..."
-  run stow -R -v -t "$HOME" "$package"
+  if ! run stow -R -v -t "$HOME" "$package"; then
+    echo "WARNING: Failed to stow $package (see above). Skipping."
+  fi
 done
 
 # Set up zsh as default shell
