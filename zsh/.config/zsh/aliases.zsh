@@ -4,7 +4,7 @@
 
 claude() {
   tmux rename-window "claude"
-  command claude "$@"
+  command claude --effort max "$@"
 }
 
 # ------------------------------
