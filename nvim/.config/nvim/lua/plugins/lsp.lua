@@ -29,6 +29,7 @@ return {
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
+      'b0o/schemastore.nvim',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -266,6 +267,14 @@ return {
         },
         tailwindcss = {},
         ruby_lsp = {},
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
