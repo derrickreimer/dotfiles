@@ -24,5 +24,6 @@
   "enabledPlugins": {
     "frontend-design@claude-code-plugins": true,
     "code-review@claude-plugins-official": true
-  }
+  },
+  "effortLevel": "xhigh"
 }

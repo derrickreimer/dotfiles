@@ -1,9 +1,9 @@
 {
-    "editor.minimap.enabled": false,
     "vim.enableNeovim": true,
     "vim.neovimConfigPath": "~/.config/nvim/init.lua",
     "vim.neovimPath": "/opt/homebrew/bin/nvim",
     "vim.neovimUseConfigFile": true,
     "editor.lineNumbers": "relative",
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "circleci.hostUrl": ""
 }
