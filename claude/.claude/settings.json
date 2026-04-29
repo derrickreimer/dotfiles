@@ -25,5 +25,11 @@
     "frontend-design@claude-code-plugins": true,
     "code-review@claude-plugins-official": true
   },
-  "effortLevel": "xhigh"
+  "effortLevel": "xhigh",
+  "editorMode": "vim",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "permissions": {
+    "defaultMode": "auto"
+  }
 }
