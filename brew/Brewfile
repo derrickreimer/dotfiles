@@ -35,6 +35,7 @@ brew 'zsh'
 # Cask
 cask 'cleanshot'
 cask 'claude'
+cask 'codex'
 cask 'dropbox'
 cask 'elgato-camera-hub'
 cask 'firefox'

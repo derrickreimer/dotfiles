@@ -3,7 +3,6 @@
   elixir = "latest"
   nodejs = "latest"
   "npm:@fsouza/prettierd" = "latest"
-  "npm:@openai/codex" = "latest"
   "npm:bibletui" = "latest"
   "npm:counselors" = "latest"
 
