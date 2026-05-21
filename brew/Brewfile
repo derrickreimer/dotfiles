@@ -1,6 +1,7 @@
 # Brew
 
 tap 'CrunchyData/brew'
+tap 'basecamp/tap'
 tap 'stripe/stripe-cli'
 tap 'honeybadger-io/tap'
 
@@ -33,6 +34,7 @@ brew 'zsh-completions'
 brew 'zsh'
 
 # Cask
+cask 'basecamp'
 cask 'cleanshot'
 cask 'claude'
 cask 'codex'
@@ -44,7 +46,7 @@ cask 'ghostty'
 cask 'google-chrome'
 cask 'google-drive'
 cask 'hyperkey'
-cask 'linear-linear'
+cask 'linear'
 cask 'microsoft-word'
 cask 'obsidian'
 cask 'raycast'
