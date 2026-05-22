@@ -27,13 +27,20 @@
   "enabledPlugins": {
     "frontend-design@claude-code-plugins": true,
     "code-review@claude-plugins-official": true,
-    "codex@openai-codex": true
+    "codex@openai-codex": true,
+    "basecamp@37signals": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
       "source": {
         "source": "github",
         "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "37signals": {
+      "source": {
+        "source": "github",
+        "repo": "basecamp/claude-plugins"
       }
     }
   },
