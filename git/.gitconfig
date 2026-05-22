@@ -3,3 +3,5 @@
 	name = Derrick Reimer
 [init]
 	defaultBranch = main
+[url "https://github.com/basecamp/"]
+	insteadOf = git@github.com:basecamp/
