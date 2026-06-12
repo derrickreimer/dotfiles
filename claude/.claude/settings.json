@@ -11,6 +11,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "Notification": [
       {
@@ -28,7 +29,8 @@
     "frontend-design@claude-code-plugins": true,
     "code-review@claude-plugins-official": true,
     "codex@openai-codex": true,
-    "basecamp@37signals": true
+    "basecamp@37signals": true,
+    "security-guidance@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -45,6 +47,6 @@
     }
   },
   "effortLevel": "high",
-  "editorMode": "vim",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "editorMode": "normal"
 }
