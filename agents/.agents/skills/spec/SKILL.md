@@ -1,11 +1,20 @@
 ---
 name: spec
-description: "Turn a short task description into an agent-ready Linear ticket. Investigates the codebase, settles open decisions via clarifying questions, and files a ticket a fresh agent with no shared context can execute unassisted."
+description: "Turn a task into an agent-ready Linear ticket — either by fleshing out an existing ticket or by drafting and filing a new one. Investigates the codebase, settles open decisions via clarifying questions, and produces a ticket a fresh agent with no shared context can execute unassisted."
 ---
 
 ## What this does
 
-The user invokes this with a task description as arguments, e.g. `/spec add rate limiting to the public API endpoints`. You turn that into a Linear ticket and file it. You are producing a _spec_, not the implementation — do not write or edit application code. The deliverable is the ticket.
+You produce a _spec_ — an agent-ready Linear ticket — not the implementation. Do not write or edit application code. The deliverable is the ticket.
+
+Two modes, chosen by what the user passes as arguments:
+
+- **Mode A — flesh out an existing ticket.** The argument references a Linear issue: an identifier like `ENG-123` or a `linear.app/...` URL (optionally with extra notes, e.g. `/spec ENG-123 also handle the empty-state`). You read that ticket and turn it into an agent-ready spec _in place_, updating the same issue.
+- **Mode B — draft a new ticket.** The argument is a free-text task description, e.g. `/spec add rate limiting to the public API endpoints`. You turn that into a new Linear ticket and file it.
+
+Detect the mode from the argument shape: a recognizable Linear identifier or URL → Mode A; anything else → Mode B. If genuinely ambiguous, ask one tight question.
+
+Everything below — the governing rule, operating principles, investigation, ticket structure, and self-check — applies to **both** modes. Only the destination step (3) and the filing step (5) branch.
 
 ## The governing rule
 
@@ -53,8 +62,11 @@ Then **verify the load-bearing specifics yourself** with direct `Read`/`grep` so
 
 ### 3. Identify the Linear destination
 
-If the Linear MCP tools aren't loaded, load them (e.g. `ToolSearch` with `select:mcp__claude_ai_Linear__list_teams,mcp__claude_ai_Linear__save_issue,mcp__claude_ai_Linear__list_issues`, adding others as needed).
+If the Linear MCP tools aren't loaded, load them (e.g. `ToolSearch` with `select:mcp__claude_ai_Linear__list_teams,mcp__claude_ai_Linear__save_issue,mcp__claude_ai_Linear__list_issues,mcp__claude_ai_Linear__get_issue`, adding others as needed).
 
+**Mode A (existing ticket):** Fetch the ticket with `get_issue`. Team, project, assignee, and priority already exist — keep them unless the user asks to change them. Read the author's existing title and body carefully: it sets the intent you are sharpening, not replacing. Treat its stated framing as a decision the author already made; your job is to make it executable, surface gaps, and flag contradictions — not to silently overwrite. Before restructuring substantial human-authored prose, **ask the user** (fold it into the step 4 batch): preserve-and-append vs. full rewrite into the standard layout. Default to preserve-and-append when in doubt.
+
+**Mode B (new ticket):**
 - Determine the target team with `list_teams`. One obvious team → use it; otherwise ask.
 - Decide project, assignee, priority. If not obvious, fold these into the batched questions in step 4. Default assignee: ask, or "me" if the user already signaled it.
 
@@ -72,7 +84,10 @@ If everything is already determined, skip straight to filing — but that's rare
 
 Build the ticket in the structure below. Then run the **pre-file self-check** before calling `save_issue`.
 
-File with `mcp__claude_ai_Linear__save_issue` (team + title + description + assignee/labels per the user's choices). Pass markdown with **literal newlines**, not escaped `\n`.
+File with `mcp__claude_ai_Linear__save_issue`. Pass markdown with **literal newlines**, not escaped `\n`.
+
+- **Mode A:** pass the existing issue `id` to update in place. Carry the author's title/body forward per the preserve-vs-rewrite choice from step 3 — append the agent-ready sections (Settled decisions, Current behavior, Target implementation, Acceptance criteria) rather than discarding their framing, unless they opted into a full rewrite. Don't touch team/assignee/priority unless asked.
+- **Mode B:** create a new issue with team + title + description + assignee/labels per the user's choices.
 
 #### Ticket structure
 
