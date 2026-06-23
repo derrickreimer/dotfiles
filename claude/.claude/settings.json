@@ -29,7 +29,8 @@
     "code-review@claude-plugins-official": true,
     "codex@openai-codex": true,
     "basecamp@37signals": true,
-    "security-guidance@claude-plugins-official": true
+    "security-guidance@claude-plugins-official": true,
+    "impeccable@impeccable": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -43,10 +44,16 @@
         "source": "github",
         "repo": "basecamp/claude-plugins"
       }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
     }
   },
   "effortLevel": "high",
+  "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true
+  "skipAutoPermissionPrompt": true
 }
