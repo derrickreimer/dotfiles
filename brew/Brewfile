@@ -34,6 +34,7 @@ brew 'zsh-completions'
 brew 'zsh'
 
 # Cask
+cask '1password-cli'
 cask 'basecamp'
 cask 'cleanshot'
 cask 'claude'
