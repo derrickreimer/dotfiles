@@ -99,6 +99,12 @@ run "$BREW_BIN" bundle --file=brew/Brewfile
 # Stow configurations
 echo "Stowing dotfiles..."
 
+# Ensure these exist as real directories so stow links individual entries
+# instead of folding the whole directory into a single symlink back to the repo.
+# (~/.claude is owned by Claude Code at runtime; ~/.agents/skills holds a mix of
+# stow-managed skills and externally-installed ones like basecamp.)
+run mkdir -p "$HOME/.claude" "$HOME/.agents/skills"
+
 # Stow 'stow' first to ensure .stow-global-ignore is applied
 echo "Stowing stow..."
 run stow -R -v -t "$HOME" stow
@@ -118,6 +124,16 @@ for dir in */; do
     echo "WARNING: Failed to stow $package (see above). Skipping."
   fi
 done
+
+# Point Claude's skills dir at the shared agent skills dir. Stow can't fold this
+# link itself (it would resolve back into the repo and miss externally-installed
+# skills), so create it directly. Relative target resolves to ~/.agents/skills.
+echo "Linking ~/.claude/skills -> ~/.agents/skills..."
+if [ -e "$HOME/.claude/skills" ] && [ ! -L "$HOME/.claude/skills" ]; then
+  echo "WARNING: $HOME/.claude/skills exists and is not a symlink; leaving it alone."
+else
+  run ln -sfn ../.agents/skills "$HOME/.claude/skills"
+fi
 
 # Set up zsh as default shell
 echo "Setting up zsh..."

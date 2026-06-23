@@ -65,11 +65,19 @@ Symlink configurations with stow:
 stow stow
 
 # Symlink all packages
-stow brew claude codex counselors gemini ghostty git kitty mise nvim opencode starship tmux vscode zsh
+stow agents brew claude codex gemini ghostty git kitty mise nvim opencode starship tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
 stow nvim
+```
+
+Agent skills live in `~/.agents/skills` (the `agents` package). Claude Code reads
+them via a symlink that stow can't fold on its own, so create it once:
+
+```bash
+mkdir -p ~/.claude ~/.agents/skills
+ln -sfn ../.agents/skills ~/.claude/skills
 ```
 
 Set up zsh as the default shell:
@@ -88,10 +96,10 @@ Each directory is a stow package that maps to `$HOME`:
 
 | Package    | Description                                    |
 | ---------- | ---------------------------------------------- |
+| `agents`   | Shared agent skills (`~/.agents/skills`)        |
 | `brew`     | Homebrew Brewfile for packages and casks       |
 | `claude`   | Claude Code settings                           |
 | `codex`    | Codex settings                                 |
-| `counselors` | Counselors settings                          |
 | `gemini`   | Gemini CLI settings                            |
 | `ghostty`  | Ghostty terminal config (TokyoNight theme)     |
 | `git`      | Global gitignore                               |
