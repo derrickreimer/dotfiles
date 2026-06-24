@@ -99,7 +99,7 @@ The sections below are the default layout for a change-behavior task. Drop one t
 - **Settled decisions (agent-ready)** — numbered imperatives capturing every choice made, each with its rationale. Removes ambiguity.
 - **Current behavior** — how it works today, with a code excerpt and `file:line` refs, plus any architecture context the implementer needs.
 - **Target implementation** — concrete, ordered steps. Sample code following the canonical pattern. Exact files to create/modify and the wiring/registration points. Per-call-site details called out.
-- **Acceptance criteria** — a `- [ ]` checklist that is specific and testable, including the test approach and any post-deploy verification.
+- **Acceptance criteria** — a `- [ ]` checklist the executor will **grade itself against and loop on** until each item passes. Write every item so the agent can verify it _with no human in the loop_: a concrete pass/fail it can run, read, or count — never "works well" or "looks right." Include the test approach and any post-deploy verification. Keep the list lean and each item **independently** checkable; the executor re-runs each one until it passes, so a bloated or interdependent list is slow and brittle. For deliverables a passing test can't capture (research, audits, content, analysis), pin three things explicitly: a **minimum count** where it applies ("at least 3 …"), a **quality anchor** the agent can measure against (a real-world standard or comparable example, not "high quality"), and the **exact output artifact and format** ("a Linear comment with copy-pasteable markdown", "a new `docs/x.md`"). State any source constraint here too ("base findings only on the 4 references below").
 - **Out of scope / follow-ups** — what you're deliberately not doing, and where it's tracked.
 - **Key references** — annotated `file:line` anchors and external links (related tickets, docs).
 
@@ -111,7 +111,7 @@ Before filing, read the draft as the cold-start executor and confirm:
 - [ ] Every file path, field, and function named in the ticket was **verified against the code**, not assumed.
 - [ ] Every decision made during this session appears in **Settled decisions** — none left implicit.
 - [ ] The implementer is pointed at a **named canonical example** to mirror (not just told what to build).
-- [ ] Acceptance criteria are **testable**, not aspirational.
+- [ ] Acceptance criteria are **self-gradeable** — each is a pass/fail the executor can check alone, with counts, quality anchors, and output format pinned for any non-code deliverable.
 
 If any box fails, fix the ticket before filing.
 
