@@ -80,11 +80,15 @@ List the genuine open forks (per the ask-test) plus any filing logistics, and as
 
 If everything is already determined, skip straight to filing — but that's rare; most real tasks have 1–3 genuine forks.
 
-### 5. Write, self-check, then file
+### 5. Write, self-check, get approval, then file
 
-Build the ticket in the structure below. Then run the **pre-file self-check** before calling `save_issue`.
+Build the ticket in the structure below. Then run the **pre-file self-check**.
 
-File with `mcp__claude_ai_Linear__save_issue`. Pass markdown with **literal newlines**, not escaped `\n`.
+**Always show the proposed content and get explicit approval before touching Linear.** Never call `save_issue` (or any other Linear-mutating tool) without first presenting what you're about to write and getting a clear go-ahead. This applies to both modes — creating a new issue and updating an existing one.
+
+- Present the full proposed ticket in the chat: the title and the complete markdown body, plus the filing details (Mode B: team, project, assignee, priority, labels; Mode A: which issue `id` you'll update and, for a full rewrite, that you're replacing the existing body).
+- Ask the user to approve or request changes. Fold any edits back in and re-present until they approve. Treat silence or an ambiguous reply as _not_ approved.
+- Only after explicit approval, file with `mcp__claude_ai_Linear__save_issue`. Pass markdown with **literal newlines**, not escaped `\n`.
 
 - **Mode A:** pass the existing issue `id` to update in place. Carry the author's title/body forward per the preserve-vs-rewrite choice from step 3 — append the agent-ready sections (Settled decisions, Current behavior, Target implementation, Acceptance criteria) rather than discarding their framing, unless they opted into a full rewrite. Don't touch team/assignee/priority unless asked.
 - **Mode B:** create a new issue with team + title + description + assignee/labels per the user's choices.
