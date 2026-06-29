@@ -3,6 +3,7 @@
   elixir = "latest"
   nodejs = "latest"
   "npm:@fsouza/prettierd" = "latest"
+  "npm:eslint_d" = "latest"
   "npm:bibletui" = "latest"
   "npm:@wavyx/hscli" = "latest" 
 
