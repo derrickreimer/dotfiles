@@ -11,20 +11,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "permission_prompt|idle_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e \"display notification \\\"$PWD\\\" with title \\\"Claude Code - $(tmux display-message -p '#S' 2>/dev/null || echo 'shell')\\\"\""
-          }
-        ]
-      }
-    ]
-  },
+  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
     "frontend-design@claude-code-plugins": true,
     "code-review@claude-plugins-official": true,
@@ -32,7 +19,8 @@
     "basecamp@37signals": true,
     "security-guidance@claude-plugins-official": true,
     "impeccable@impeccable": true,
-    "posthog@claude-plugins-official": true
+    "posthog@claude-plugins-official": true,
+    "vanta-mcp-plugin@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
