@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "tokyonight",
+  "theme": "carbonfox",
   "keybinds": {
     "leader": "ctrl+x"
   },
