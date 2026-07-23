@@ -18,6 +18,7 @@ brew 'libyaml' # Ruby needs this to build
 brew 'mise'
 brew 'mjml'
 brew 'neovim'
+brew 'newrelic-cli'
 brew 'opencode'
 brew 'p7zip'
 brew 'pnpm'
