@@ -11,7 +11,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
     "frontend-design@claude-code-plugins": true,
     "code-review@claude-plugins-official": true,
