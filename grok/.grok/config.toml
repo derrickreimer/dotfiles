@@ -1,0 +1,22 @@
+[cli]
+installer = "internal"
+
+[marketplace]
+official_marketplace_auto_installed = true
+default_skills_installs_purged = true
+
+[[marketplace.sources]]
+name = "xAI Official"
+git = "https://github.com/xai-org/plugin-marketplace.git"
+
+[ui]
+max_thoughts_width = 120
+theme = "auto"
+fork_secondary_model = "grok-build"
+yolo = false
+compact_mode = false
+permission_mode = "always-approve"
+
+[mcp_servers.helpscout]
+url = "https://mcp.helpscout.net/mcp"
+enabled = true

@@ -150,6 +150,11 @@ fi
 # Stow configurations
 echo "Stowing dotfiles..."
 
+# Ensure these exist as real directories so stow links individual entries
+# instead of folding the whole directory into a single symlink back to the repo.
+# (~/.grok holds local auth/sessions/credentials alongside a stowed config.toml.)
+run mkdir -p "$HOME/.claude" "$HOME/.agents/skills" "$HOME/.grok"
+
 # Stow 'stow' first to ensure .stow-global-ignore is applied
 echo "Stowing stow..."
 run stow -R -v -t "$HOME" stow
