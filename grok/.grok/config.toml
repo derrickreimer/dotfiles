@@ -20,3 +20,7 @@ permission_mode = "always-approve"
 [mcp_servers.helpscout]
 url = "https://mcp.helpscout.net/mcp"
 enabled = true
+
+[mcp_servers.savvycal]
+url = "https://savvycal.com/mcp"
+enabled = true
