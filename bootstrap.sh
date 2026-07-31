@@ -103,8 +103,9 @@ echo "Stowing dotfiles..."
 # instead of folding the whole directory into a single symlink back to the repo.
 # (~/.claude is owned by Claude Code at runtime; ~/.agents/skills holds a mix of
 # stow-managed skills and externally-installed ones like basecamp; ~/.grok holds
-# local auth/sessions/credentials alongside a stowed config.toml.)
-run mkdir -p "$HOME/.claude" "$HOME/.agents/skills" "$HOME/.grok"
+# local auth/sessions/credentials alongside a stowed config.toml; ~/.config/hunk
+# holds Hunk's runtime state.json alongside a stowed config.toml.)
+run mkdir -p "$HOME/.claude" "$HOME/.agents/skills" "$HOME/.grok" "$HOME/.config/hunk"
 
 # Stow 'stow' first to ensure .stow-global-ignore is applied
 echo "Stowing stow..."

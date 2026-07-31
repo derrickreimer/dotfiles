@@ -1,0 +1,76 @@
+# Hunk config — https://www.hunk.dev/docs/reference/config/
+# Theme colors match Ghostty/Kitty Carbonfox (nightfox family).
+
+theme = "custom"
+transparent_background = true
+
+[custom_theme]
+base = "github-dark-default"
+label = "Carbonfox"
+
+# Surfaces
+background = "#161616"
+panel = "#161616"
+panelAlt = "#232324"
+border = "#2a2a2a"
+accent = "#78a9ff"
+accentMuted = "#8cb6ff"
+text = "#f2f4f8"
+muted = "#6e6f70"
+
+# Diff backgrounds (nightfox-style blends on #161616)
+addedBg = "#172b20"
+removedBg = "#311d26"
+movedAddedBg = "#1c3545"
+movedRemovedBg = "#252c39"
+contextBg = "#161616"
+addedContentBg = "#1a402b"
+removedContentBg = "#4c2536"
+contextContentBg = "#202020"
+
+# Diff signs / line numbers
+addedSignColor = "#25be6a"
+removedSignColor = "#ee5396"
+lineNumberBg = "#161616"
+lineNumberFg = "#6e6f70"
+selectedHunk = "#2a2a2a"
+
+# File badges
+badgeAdded = "#25be6a"
+badgeRemoved = "#ee5396"
+badgeNeutral = "#78a9ff"
+fileNew = "#25be6a"
+fileDeleted = "#ee5396"
+fileRenamed = "#08bdba"
+fileModified = "#78a9ff"
+fileUntracked = "#be95ff"
+
+# Agent notes
+noteBorder = "#be95ff"
+noteBackground = "#232029"
+noteTitleBackground = "#232324"
+noteTitleText = "#f2f4f8"
+
+# Syntax (Carbonfox / nightfox scopes)
+[custom_theme.syntax_scopes]
+"comment" = "#6e6f70"
+"punctuation.definition.comment" = "#6e6f70"
+"string" = "#25be6a"
+"constant.numeric" = "#3ddbd9"
+"constant.language" = "#3ddbd9"
+"keyword" = "#be95ff"
+"keyword.control" = "#c8a5ff"
+"keyword.operator" = "#b8b9bc"
+"storage" = "#be95ff"
+"storage.type" = "#08bdba"
+"entity.name.function" = "#8cb6ff"
+"entity.name.type" = "#08bdba"
+"entity.name.class" = "#08bdba"
+"variable" = "#dfdfe0"
+"variable.language" = "#ee5396"
+"variable.other.constant" = "#3ddbd9"
+"support.function" = "#8cb6ff"
+"support.type" = "#52bdff"
+"support.class" = "#52bdff"
+"punctuation" = "#b8b9bc"
+"meta.decorator" = "#ff7eb6"

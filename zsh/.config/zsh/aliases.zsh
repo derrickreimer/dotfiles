@@ -41,6 +41,12 @@ alias gco='git checkout'
 alias gb='git branch'
 
 # ------------------------------
+# Hunk (diff viewer)
+# ------------------------------
+
+alias hd='hunk diff'
+
+# ------------------------------
 # Homebrew
 # ------------------------------
 

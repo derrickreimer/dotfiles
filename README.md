@@ -65,7 +65,7 @@ Symlink configurations with stow:
 stow stow
 
 # Symlink all packages
-stow agents brew claude codex gemini ghostty git grok kitty mise nvim opencode starship tmux vscode zsh
+stow agents brew claude codex gemini ghostty git grok hunk kitty mise nvim opencode starship tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
@@ -101,10 +101,11 @@ Each directory is a stow package that maps to `$HOME`:
 | `claude`   | Claude Code settings                           |
 | `codex`    | Codex settings                                 |
 | `gemini`   | Gemini CLI settings                            |
-| `ghostty`  | Ghostty terminal config (TokyoNight theme)     |
+| `ghostty`  | Ghostty terminal config (Carbonfox theme)      |
 | `git`      | Global gitignore                               |
 | `grok`     | Grok CLI config (`~/.grok/config.toml` only)   |
-| `kitty`    | Kitty terminal config                          |
+| `hunk`     | Hunk diff viewer (`~/.config/hunk/config.toml`)|
+| `kitty`    | Kitty terminal config (Carbonfox theme)        |
 | `mise`     | mise runtime manager (Erlang, Elixir, Node.js) |
 | `nvim`     | Neovim config (based on Kickstart)             |
 | `opencode` | Opencode settings                              |
