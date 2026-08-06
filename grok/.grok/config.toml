@@ -24,3 +24,7 @@ enabled = true
 [mcp_servers.savvycal]
 url = "https://savvycal.com/mcp"
 enabled = true
+
+[mcp_servers.honeybadger]
+url = "https://mcp.honeybadger.io/mcp"
+enabled = true
