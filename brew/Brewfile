@@ -32,6 +32,7 @@ brew 'stow'
 brew 'tailscale'
 brew 'tmux'
 brew 'tree-sitter-cli'
+brew 'worktrunk'
 brew 'zsh-completions'
 brew 'zsh'
 
