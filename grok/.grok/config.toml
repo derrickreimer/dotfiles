@@ -28,3 +28,8 @@ enabled = true
 [mcp_servers.honeybadger]
 url = "https://mcp.honeybadger.io/mcp"
 enabled = true
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@latest"]
+enabled = true
