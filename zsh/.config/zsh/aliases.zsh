@@ -44,7 +44,7 @@ alias gb='git branch'
 # Hunk (diff viewer)
 # ------------------------------
 
-alias hd='hunk diff'
+alias hd='hunk diff --watch'
 
 # ------------------------------
 # Homebrew
