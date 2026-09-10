@@ -68,6 +68,7 @@ return {
           '_build/',
           '.elixir_ls/',
           '.expert/',
+          '.dexter/',
           '.hex$',
           'priv/static', -- this is generated output in Elixir Phoenix projects
         },

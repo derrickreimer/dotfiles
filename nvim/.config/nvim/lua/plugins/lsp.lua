@@ -250,7 +250,10 @@ return {
             },
           },
         },
-        elixirls = {},
+        -- Dexter: fast Elixir LSP (https://github.com/remoteoss/dexter).
+        -- Installed via Mason; elixirls is excluded below so a leftover
+        -- elixir-ls package cannot attach alongside it.
+        dexter = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -299,6 +302,9 @@ return {
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
         automatic_installation = false,
+        automatic_enable = {
+          exclude = { 'elixirls' },
+        },
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}

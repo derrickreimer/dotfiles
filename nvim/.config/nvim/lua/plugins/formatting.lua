@@ -67,9 +67,10 @@ return {
         html = { 'prettierd' },
         mjml = { 'prettierd' },
         lua = { 'stylua' },
-        elixir = { 'mix' },
-        eelixir = { 'mix' },
-        heex = { 'mix' },
+        -- Dexter formats via textDocument/formatting (persistent BEAM process)
+        elixir = { lsp_format = 'prefer' },
+        eelixir = { lsp_format = 'prefer' },
+        heex = { lsp_format = 'prefer' },
         javascript = js_formatters,
         typescript = js_formatters,
         javascriptreact = js_formatters,
