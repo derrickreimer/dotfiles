@@ -48,5 +48,6 @@
   "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "hooks": {"SessionStart":[{"matcher":"*","hooks":[{"type":"command","command":"bash '/Users/derrickreimer/.claude/hooks/herdr-agent-state.sh' session","timeout":10}]}]}
 }

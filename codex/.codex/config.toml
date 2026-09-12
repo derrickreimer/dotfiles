@@ -28,6 +28,7 @@ trust_level = "trusted"
 network_access = true
 
 [features]
+hooks = true
 experimental_use_rmcp_client = true
 
 [mcp_servers.linear]
