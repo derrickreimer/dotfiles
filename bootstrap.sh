@@ -103,8 +103,8 @@ echo "Stowing dotfiles..."
 # instead of folding the whole directory into a single symlink back to the repo.
 # (~/.claude is owned by Claude Code at runtime; ~/.agents/skills holds a mix of
 # stow-managed skills and externally-installed ones like basecamp; ~/.config/hunk
-# holds Hunk's runtime state.json alongside a stowed config.toml.)
-run mkdir -p "$HOME/.claude" "$HOME/.agents/skills" "$HOME/.config/hunk"
+# and ~/.config/herdr hold runtime state alongside stowed config.toml.)
+run mkdir -p "$HOME/.claude" "$HOME/.agents/skills" "$HOME/.config/hunk" "$HOME/.config/herdr"
 
 # Stow 'stow' first to ensure .stow-global-ignore is applied
 echo "Stowing stow..."
@@ -125,6 +125,13 @@ for dir in */; do
     echo "WARNING: Failed to stow $package (see above). Skipping."
   fi
 done
+
+# Local Herdr plugins live in the repo (not stowed) and are registered with
+# `herdr plugin link`. link_plugins also runs each manifest [[build]] step.
+if command -v herdr >/dev/null 2>&1; then
+  echo "Linking herdr plugins..."
+  run "$PWD/herdr/link_plugins"
+fi
 
 # Point Claude's skills dir at the shared agent skills dir. Stow can't fold this
 # link itself (it would resolve back into the repo and miss externally-installed

@@ -153,8 +153,9 @@ echo "Stowing dotfiles..."
 # Ensure these exist as real directories so stow links individual entries
 # instead of folding the whole directory into a single symlink back to the repo.
 # (~/.claude is owned by Claude Code at runtime; ~/.agents/skills holds a mix of
-# stow-managed skills and externally-installed ones like basecamp.)
-run mkdir -p "$HOME/.claude" "$HOME/.agents/skills"
+# stow-managed skills and externally-installed ones like basecamp; ~/.config/herdr
+# holds runtime state alongside a stowed config.toml.)
+run mkdir -p "$HOME/.claude" "$HOME/.agents/skills" "$HOME/.config/herdr"
 
 # Stow 'stow' first to ensure .stow-global-ignore is applied
 echo "Stowing stow..."
@@ -180,6 +181,13 @@ for dir in */; do
     echo "WARNING: Failed to stow $package (see above). Skipping."
   fi
 done
+
+# Local Herdr plugins live in the repo (not stowed) and are registered with
+# `herdr plugin link`. link_plugins also runs each manifest [[build]] step.
+if command -v herdr >/dev/null 2>&1; then
+  echo "Linking herdr plugins..."
+  run "$PWD/herdr/link_plugins"
+fi
 
 # Set up zsh as default shell
 echo "Setting up zsh..."

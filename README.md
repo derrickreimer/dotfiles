@@ -65,7 +65,7 @@ Symlink configurations with stow:
 stow stow
 
 # Symlink all packages
-stow agents brew claude codex gemini ghostty git hunk kitty mise nvim opencode starship tmux vscode zsh
+stow agents brew claude codex gemini ghostty git herdr hunk kitty mise nvim opencode starship tmux vscode zsh
 
 # Or symlink individual packages
 stow zsh
@@ -103,6 +103,7 @@ Each directory is a stow package that maps to `$HOME`:
 | `gemini`   | Gemini CLI settings                            |
 | `ghostty`  | Ghostty terminal config (Carbonfox theme)      |
 | `git`      | Global gitignore                               |
+| `herdr`    | Herdr config, aligned with the tmux keybindings; local plugins in `herdr/plugins/` |
 | `hunk`     | Hunk diff viewer (`~/.config/hunk/config.toml`)|
 | `kitty`    | Kitty terminal config (Carbonfox theme)        |
 | `mise`     | mise runtime manager (Erlang, Elixir, Node.js) |
@@ -142,6 +143,15 @@ stow -D zsh
 
 - `nvim/.config/nvim/doc/cheatsheet.md` - Neovim keybindings reference (accessible via `<leader>?` in nvim)
 - `tmux-cheatsheet.md` - tmux keybindings reference (accessible via `prefix + ?` in tmux)
+- `herdr-cheatsheet.md` - herdr keybindings reference (aligned with tmux; live bindings via `prefix + ?` in herdr)
+
+Herdr plugins under `herdr/plugins/` are not stowed. After cloning, run:
+
+```bash
+./herdr/link_plugins
+```
+
+That registers each plugin with `herdr plugin link` and compiles any `[[build]]` steps. `bootstrap.sh` does this automatically.
 
 ## Local overrides
 

@@ -1,0 +1,136 @@
+# Herdr config aligned with ~/.tmux.conf
+# Reload: prefix+r  or  herdr server reload-config
+
+onboarding = false
+
+# =============================================================================
+# Theme (Ghostty Carbonfox / nightfox)
+# =============================================================================
+
+[theme]
+name = "rose-pine"
+auto_switch = false
+
+[theme.custom]
+# Surfaces
+panel_bg = "#161616"
+sidebar_bg = "#161616"
+active_row_bg = "reset"
+selection_bg = "#2a2a2a"
+surface0 = "#1F1F1F"
+surface1 = "#484848"
+surface_dim = "#0c0c0c"
+overlay0 = "#b6b8bb"
+overlay1 = "#dfdfe0"
+
+# Text
+text = "#f2f4f8"
+subtext0 = "#b6b8bb"
+
+# Accents (Ghostty ANSI + Carbonfox orange/pink indexes)
+accent = "#78a9ff"
+blue = "#78a9ff"
+red = "#ee5396"
+green = "#25be6a"
+yellow = "#08bdba"
+mauve = "#be95ff"
+teal = "#33b1ff"
+peach = "#3ddbd9"
+
+# =============================================================================
+# Terminal
+# =============================================================================
+
+[terminal]
+default_shell = "/bin/zsh"
+shell_mode = "login"
+new_cwd = "follow"
+
+# =============================================================================
+# Key Bindings
+# =============================================================================
+
+[keys]
+prefix = "ctrl+b"
+
+# Help / config (tmux: prefix+? cheatsheet, prefix+r reload)
+help = "prefix+?"
+reload_config = "prefix+r"
+settings = "prefix+shift+s"
+
+# Detach (tmux: prefix+d; herdr default prefix+q kept as alias)
+detach = ["prefix+d", "prefix+q"]
+
+# Workspaces ≈ tmux sessions
+workspace_picker = "prefix+s"
+goto = ["prefix+g", "prefix+w"]
+rename_workspace = ["prefix+$", "prefix+shift+w"]
+new_workspace = "prefix+shift+n"
+close_workspace = "prefix+shift+d"
+
+# Navigate mode (sidebar / space list): j/k through spaces, arrows through panes
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+navigate_pane_left = "h"
+navigate_pane_down = "down"
+navigate_pane_up = "up"
+navigate_pane_right = "l"
+
+# Tabs ≈ tmux windows
+new_tab = "prefix+c"
+rename_tab = ["prefix+comma", "prefix+shift+t"]
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = ["prefix+1..9", "alt+1..9"]
+close_tab = ["prefix+ampersand", "prefix+shift+x"]
+move_tab_previous = "prefix+<"
+move_tab_next = "prefix+>"
+
+# Panes
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+focus_pane_left = ["prefix+h", "alt+h"]
+focus_pane_down = ["prefix+j", "alt+j"]
+focus_pane_up = ["prefix+k", "alt+k"]
+focus_pane_right = ["prefix+l", "alt+l"]
+resize_pane_left = "prefix+shift+h"
+resize_pane_down = "prefix+shift+j"
+resize_pane_up = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+resize_mode = "prefix+shift+r"
+swap_pane_left = "prefix+{"
+swap_pane_down = ""
+swap_pane_up = ""
+swap_pane_right = "prefix+}"
+close_pane = "prefix+x"
+zoom = "prefix+z"
+toggle_sidebar = "prefix+b"
+
+# Copy mode (tmux: prefix+v custom, prefix+[ default)
+copy_mode = ["prefix+v", "prefix+["]
+
+# =============================================================================
+# UI (tmux-style chrome)
+# =============================================================================
+
+[ui]
+mouse_capture = true
+copy_on_select = true
+confirm_close = true
+prompt_new_tab_name = false
+# 1-cell frame around panes (Herdr has no padding/margin setting)
+pane_borders = "always"
+pane_outer_borders = true
+pane_scrollbars = false
+pane_gaps = false
+tab_bar_position = "bottom"
+tab_bar_right = [
+  { type = "datetime", format = "%a %b %d" },
+  { type = "datetime", format = "%H:%M" },
+]
+tab_bar_right_separator = " "
+accent = "#78a9ff"
+
+[advanced]
+# ~50k lines of typical terminal output (tmux history-limit 50000)
+scrollback_limit_bytes = 20000000
