@@ -58,3 +58,5 @@ eval "$(starship init zsh)"
 # ------------------------------
 
 [[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
