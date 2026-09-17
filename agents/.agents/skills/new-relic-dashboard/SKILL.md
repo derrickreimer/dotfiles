@@ -89,6 +89,30 @@ same account rather than inventing fields.
 `layout`: `{ column, row, width, height }`. Start `row` at 1. Leave a gap
 between rows (`row` 1 height 3 → next row 4).
 
+### Billboard display
+
+Headline count/rate tiles belong in **Value only** when the widget title
+already names the metric. That is
+`billboardSettings.visual.display: "value"` — not shrinking the series
+label, not aliasing `count(*)` to a space, not omitting `AS`. Other
+`display` values: `auto`, `all`, `none`, `label`. Alignment is
+`stacked` or `inline`.
+
+Copy size from an existing count billboard in the same account. In this
+account that is `layout` height 2 / width 3 and
+`billboardSettings.gridOptions.value: 50`.
+
+```
+rawConfiguration: {
+  billboardSettings: {
+    visual: { display: "value" },
+    gridOptions: { value: 50 }
+  },
+  nrqlQueries: [{ accountIds: [ACCOUNT_ID], query: "SELECT count(*) FROM EventName WHERE … SINCE 24 hours ago" }],
+  platformOptions: { ignoreTimeRange: false }
+}
+```
+
 ## NRQL
 
 Probe event types and property values before writing widgets. APM uses
