@@ -12,7 +12,20 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "fable[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/derrickreimer/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "frontend-design@claude-code-plugins": true,
     "code-review@claude-plugins-official": true,
@@ -48,6 +61,5 @@
   "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "hooks": {"SessionStart":[{"matcher":"*","hooks":[{"type":"command","command":"bash '/Users/derrickreimer/.claude/hooks/herdr-agent-state.sh' session","timeout":10}]}]}
+  "skipAutoPermissionPrompt": true
 }

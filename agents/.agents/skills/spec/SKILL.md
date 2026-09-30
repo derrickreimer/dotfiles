@@ -1,6 +1,7 @@
 ---
 name: spec
 description: "Turn a task into an agent-ready Linear ticket — either by fleshing out an existing ticket or by drafting and filing a new one. Investigates the codebase, settles open decisions via clarifying questions, and produces a ticket a fresh agent with no shared context can execute unassisted."
+disable-model-invocation: true
 ---
 
 ## What this does
@@ -67,6 +68,7 @@ If the Linear MCP tools aren't loaded, load them (e.g. `ToolSearch` with `select
 **Mode A (existing ticket):** Fetch the ticket with `get_issue`. Team, project, assignee, and priority already exist — keep them unless the user asks to change them. Read the author's existing title and body carefully: it sets the intent you are sharpening, not replacing. Treat its stated framing as a decision the author already made; your job is to make it executable, surface gaps, and flag contradictions — not to silently overwrite. Before restructuring substantial human-authored prose, **ask the user** (fold it into the step 4 batch): preserve-and-append vs. full rewrite into the standard layout. Default to preserve-and-append when in doubt.
 
 **Mode B (new ticket):**
+
 - Determine the target team with `list_teams`. One obvious team → use it; otherwise ask.
 - Decide project, assignee, priority. If not obvious, fold these into the batched questions in step 4. Default assignee: ask, or "me" if the user already signaled it.
 
