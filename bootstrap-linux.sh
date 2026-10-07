@@ -147,6 +147,11 @@ else
   echo "Neovim is already installed."
 fi
 
+# Keep Codex runtime state (hook trust, notices) out of commits; see codex/strip-state.
+echo "Configuring git filters..."
+run git config filter.codex-state.clean "$PWD/codex/strip-state"
+run git config filter.codex-state.required true
+
 # Stow configurations
 echo "Stowing dotfiles..."
 

@@ -1,0 +1,40 @@
+#!/bin/sh
+# Git clean filter for codex/.codex/config.toml.
+#
+# Codex writes runtime state (hook trust hashes, dismissed notices, one-time
+# TUI flags) into the same file as our preferences. Strip that state on stage
+# so it never gets committed, while the working copy keeps it for Codex.
+#
+# Wired up via .gitattributes and `git config filter.codex-state.clean`
+# (see bootstrap.sh).
+
+awk '
+  # Track the current table and whether it is one we drop entirely.
+  /^\[/ {
+    header = $0
+    drop = (header ~ /^\[(hooks\.state|tui\.model_availability_nux|notice)([.\]])/)
+    if (drop) next
+    pending = header
+    next
+  }
+  drop { next }
+  pending != "" && /^screen_reader_detection_done[ =]/ && pending == "[tui]" { next }
+  pending != "" && /^[[:space:]]*$/ { next }
+  pending != "" {
+    # Only emit a table header once it has a key under it.
+    print pending
+    pending = ""
+    blank = 0
+  }
+  # Collapse runs of blank lines left behind by dropped tables.
+  /^[[:space:]]*$/ { if (!blank) { blank = 1; print "" } ; next }
+  { blank = 0; print }
+' | awk '
+  # Drop the trailing blank line, if any.
+  { lines[NR] = $0 }
+  END {
+    n = NR
+    while (n > 0 && lines[n] ~ /^[[:space:]]*$/) n--
+    for (i = 1; i <= n; i++) print lines[i]
+  }
+'
