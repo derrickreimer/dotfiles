@@ -94,25 +94,48 @@ gwr() {
 # Branch Cleanup
 # ------------------------------
 
-# Delete local branches that are merged into HEAD
+# Delete local branches that are merged into HEAD, or whose GitHub PR was
+# merged (e.g. squash merged)
 # Skips protected branches, the current branch, branches checked out in other
-# worktrees, and branches with commits not yet on their upstream
+# worktrees, and branches with commits not yet on their upstream or merged PR
 # Usage: gclean
 gclean() {
   git rev-parse --git-dir >/dev/null 2>&1 || { echo "Error: Not in a git repository"; return 1; }
 
-  local branch upstream worktree
-  git for-each-ref --merged HEAD --format='%(refname:short)|%(upstream)|%(worktreepath)' refs/heads |
+  local use_gh=0
+  (( $+commands[gh] )) && gh repo view --json name >/dev/null 2>&1 </dev/null && use_gh=1
+
+  local branch upstream worktree tip prs pr pr_number pr_oid
+  git for-each-ref --format='%(refname:short)|%(upstream)|%(worktreepath)' refs/heads |
   while IFS='|' read -r branch upstream worktree; do
     [[ "$branch" == (main|master|dev) || -n "$worktree" ]] && continue
 
-    if [[ -n "$upstream" ]] && git show-ref --verify --quiet "$upstream" && \
-       ! git merge-base --is-ancestor "$branch" "$upstream"; then
-      echo "Skipping $branch (not merged to ${upstream#refs/remotes/})"
-      continue
-    fi
+    if git merge-base --is-ancestor "$branch" HEAD; then
+      if [[ -n "$upstream" ]] && git show-ref --verify --quiet "$upstream" && \
+         ! git merge-base --is-ancestor "$branch" "$upstream"; then
+        echo "Skipping $branch (not merged to ${upstream#refs/remotes/})"
+        continue
+      fi
 
-    git branch -d "$branch"
+      git branch -d "$branch"
+    elif (( use_gh )); then
+      # Only delete if the local tip is contained in a merged PR's head, so
+      # commits made after the merge are never lost
+      tip=$(git rev-parse "$branch")
+      prs=$(gh pr list --state merged --head "$branch" --limit 10 \
+        --json number,headRefOid --jq '.[] | "\(.number) \(.headRefOid)"' 2>/dev/null </dev/null)
+      [[ -z "$prs" ]] && continue
+
+      for pr in ${(f)prs}; do
+        pr_number=${pr%% *} pr_oid=${pr#* }
+        if [[ "$tip" == "$pr_oid" ]] || git merge-base --is-ancestor "$tip" "$pr_oid" 2>/dev/null; then
+          git branch -D "$branch" >/dev/null && echo "Deleted branch $branch (merged via PR #$pr_number)"
+          continue 2
+        fi
+      done
+
+      echo "Skipping $branch (has commits not in merged PR #${${prs%% *}})"
+    fi
   done
 }
 
