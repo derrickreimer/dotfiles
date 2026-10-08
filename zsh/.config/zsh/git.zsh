@@ -91,6 +91,32 @@ gwr() {
 }
 
 # ------------------------------
+# Branch Cleanup
+# ------------------------------
+
+# Delete local branches that are merged into HEAD
+# Skips protected branches, the current branch, branches checked out in other
+# worktrees, and branches with commits not yet on their upstream
+# Usage: gclean
+gclean() {
+  git rev-parse --git-dir >/dev/null 2>&1 || { echo "Error: Not in a git repository"; return 1; }
+
+  local branch upstream worktree
+  git for-each-ref --merged HEAD --format='%(refname:short)|%(upstream)|%(worktreepath)' refs/heads |
+  while IFS='|' read -r branch upstream worktree; do
+    [[ "$branch" == (main|master|dev) || -n "$worktree" ]] && continue
+
+    if [[ -n "$upstream" ]] && git show-ref --verify --quiet "$upstream" && \
+       ! git merge-base --is-ancestor "$branch" "$upstream"; then
+      echo "Skipping $branch (not merged to ${upstream#refs/remotes/})"
+      continue
+    fi
+
+    git branch -d "$branch"
+  done
+}
+
+# ------------------------------
 # GitHub
 # ------------------------------
 
